@@ -2,11 +2,14 @@ from flask import Flask, jsonify
 from config import Config
 from extensions import test_PostgreSQL, test_Elasticsearch, test_Pool
 from routes.client import client_bp
+from flask_cors import CORS
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    CORS(app, origins=["https://smart-cafeter-ia-frontend.vercel.app"], supports_credentials=True)
 
     app.register_blueprint(client_bp, url_prefix="/client")
 
