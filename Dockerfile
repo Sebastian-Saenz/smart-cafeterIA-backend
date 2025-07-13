@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8080
 
 # Comando para iniciar la aplicación usando gunicorn
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8080", "--workers", "1", "--threads", "1"]
+CMD ["gunicorn", "app:create_app()", "--bind", "0.0.0.0:8080", "--workers", "1", "--threads", "1"]
